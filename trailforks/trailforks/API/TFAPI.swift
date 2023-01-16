@@ -23,7 +23,17 @@ class TrailforksAPI: TFAPI {
     }
 
     func fetchReports(completion: @escaping (Result<[TFReport], Error>) -> ()) {
-        guard let url = URL(string: TrailforksAPI.BASE_URL + "/reports") else { return }
+        guard let absoluteURL = URL(string: TrailforksAPI.BASE_URL + "/reports") else { return }
+
+        guard var urlComponents = URLComponents(string: absoluteURL.absoluteString) else { return }
+        urlComponents.queryItems = [
+            URLQueryItem(name: "app_id", value: "2"),
+            URLQueryItem(name: "app_secret", value: "CiIb@mH!Gf4JzURC"),
+            URLQueryItem(name: "fields", value: "reportid,status,condition,latitude,watchmen,created,description,username"),
+            URLQueryItem(name: "filter", value: "nid::531935,type::trail"),
+        ]
+
+        guard let url = urlComponents.url else { return }
 
         urlSession.dataTask(with: URLRequest(url: url)) { [weak self] data, response, networkError in
             guard let self = self else { return }

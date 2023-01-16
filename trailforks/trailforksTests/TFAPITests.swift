@@ -30,6 +30,15 @@ class TFAPITest: XCTestCase {
         }
         XCTAssertEqual(urlComponents.host, "www.trailforks.com")
         XCTAssertEqual(urlComponents.path, "/api/1/reports")
+        guard let queryItems = urlComponents.queryItems, !queryItems.isEmpty else {
+            XCTFail("No query items")
+            return
+        }
+        XCTAssertEqual(queryItems[0], URLQueryItem(name: "app_id", value: "2"))
+        XCTAssertEqual(queryItems[1], URLQueryItem(name: "app_secret", value: "CiIb@mH!Gf4JzURC"))
+        XCTAssertEqual(queryItems[2], URLQueryItem(name: "fields", value: "reportid,status,condition,latitude,watchmen,created,description,username"))
+        XCTAssertEqual(queryItems[3], URLQueryItem(name: "filter", value: "nid::531935,type::trail"))
+
     }
 
     func test_fetchReports_200_callCompletionWithData() {
