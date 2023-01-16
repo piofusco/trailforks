@@ -1,8 +1,5 @@
 //
-//  TrailforksURLSession.swift
-//  trailforks
-//
-//  Created by Michael Pace on 1/16/23.
+// Created by Michael Pace on 1/16/23.
 //
 
 import Foundation

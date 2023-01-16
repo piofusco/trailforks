@@ -1,12 +1,8 @@
 //
-//  TrailforksAPI.swift
-//  trailforks
-//
-//  Created by Michael Pace on 1/16/23.
+// Created by Michael Pace on 1/16/23.
 //
 
 import Foundation
-
 
 protocol TFAPI {
     func fetchReports(completion: @escaping (Result<[TFReport], Error>) -> Void)
