@@ -1,1 +1,22 @@
-.idea
+*.idea/
+.DS_Store
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+Contacts.xcodeproj/project.xcworkspace/xcuserdata/*
+
+build/
+
+fastlane/report.xml
+fastlane/test_output/
+/trailforks.xcodeproj/xcuserdata/**
+/trailforks.xcodeproj/project.xcworkspace/xcshareddata/**
